@@ -1,0 +1,52 @@
+.filter {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
+.filter > p::after {
+  content: "|";
+  padding: 10px;
+} 
+
+.filter > p:last-child::after {
+  content: none;
+}
+
+.filter p {
+  cursor: pointer;
+}
+
+.flex_wrap {
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  place-items: center;
+  gap: 70px 0px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding:7vw 12vw;
+  
+}
+
+
+
+@media (max-width: 1030px) {
+  .flex_wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width:602px){
+  .flex_wrap {
+      grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 360px) {
+  .filter p {
+    font-size: 12px;
+  }
+}
