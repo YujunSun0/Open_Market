@@ -4,17 +4,34 @@ import { TopNavigationBar } from "./components/header/topNavigationBar/topNaviga
 import Home from "./pages/home";
 import DetailPage from "./pages/datailPage";
 import Basket from "./pages/basket";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { firestore } from "./firebase";
 
 function App() {
   const [products, setProducts] = useState([]); // Home -> Main 경로로 해서 products에 데이터를 받아옴(배열) / main페이지의 데이터를 담은 상태
   const [cart, setCart] = useState([]); // 장바구니의 목록 상태
   const [checkList, setCheckList] = useState([]); // 체크된 장바구니 리스트를 담은 배열 ( id가 요소로 담김 )
-  
+  const bucket = firestore.collection("products");
 
   const convertPrice = (price) => { // 소수점 3자리마다 ,를 찍어주는 정규표현식 -> 가격을 받아 문자열로 변환 후, 컴마를 추가 후 반환(string 타입)
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+
+
+  useEffect(() => {
+    bucket.get().then((docs) => {
+       docs.forEach((doc) => {
+        if(doc.exists){
+          console.log(doc.data(), doc.id);
+          setProducts([...products,doc.data()])
+        }
+      });
+    })
+  }, []);
+  
+  console.log(products);
+
+  
 
   return (
     <BrowserRouter>
@@ -25,6 +42,7 @@ function App() {
         <Route path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} checkList={checkList} setCheckList={setCheckList} />} />
       </Routes>
     </BrowserRouter>
+    
   );
 }
 
