@@ -1,16 +1,16 @@
 import styles from "./main.module.css";
 import { EventBanner } from "../eventBanner/eventBanner";
 import { Product } from "../products/product";
-import { useEffect } from 'react';
-import { getProducts } from '../../api/fetcher';
+// import { useEffect } from 'react';
+// import { getProducts } from '../../api/fetcher';
 
 
 export const Main = ({ products, setProducts, convertPrice }) => {
-  useEffect(() => {
-    getProducts().then(res => {
-      setProducts(res.data.products)
-    })
-  }, [setProducts])
+//   useEffect(() => {
+//     getProducts().then(res => {
+//       setProducts(res.data.products)
+//     })
+//   }, [setProducts])
   
   
 

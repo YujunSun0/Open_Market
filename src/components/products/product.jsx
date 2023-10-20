@@ -3,7 +3,8 @@ import styles from "./product.module.css";
 
 export const Product = ({ products, convertPrice }) => {
   return (
-    products.map((obj, i) => {
+    products.map((obj,i) => {
+      console.log(obj);
       return (
         <div className={styles.product} key={i}>
           <Link to={`/product/${products[i].id}`}>
