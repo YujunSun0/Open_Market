@@ -18,6 +18,11 @@
   border: 1px solid #c4c4c4;
 }
 
+.product_image:hover {
+  transform: scale(1.03);
+  transition: all 0.2s;
+}
+
 .store {
   margin-bottom: 10px;
 }
