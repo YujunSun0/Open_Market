@@ -1,7 +1,12 @@
 import styles from "./topNavigationBar.module.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-export const TopNavigationBar = ({cart}) => {
+export const TopNavigationBar = ({ cart }) => {
+  const navigate = useNavigate();
+
+  if (window.location.pathname === "/login") return null;
+    
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -31,7 +36,7 @@ export const TopNavigationBar = ({cart}) => {
             }
           </div>
         </Link>
-        <Link to="">
+        <Link to="/login">
           <div className={styles.mypage}>
             <img src="/images/icon-user.svg" alt="user" />
             <span>로그인</span>
