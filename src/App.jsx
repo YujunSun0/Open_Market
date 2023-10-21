@@ -35,7 +35,7 @@ function App() {
       <TopNavigationBar cart={cart} />
       <Routes>
         <Route path="/" element={<Home products={products} setProducts={setProducts} convertPrice={convertPrice} />} />
-        <Route path="/product/:id" element={<DetailPage convertPrice={convertPrice} cart={cart} setCart={setCart} />} /> {/* 여기의 DetailPage 컴포넌트는 /pages/DetailPage.jsx 이다. products를 props로 넘겨준 이유는 기존 데이터에는 id 값이 포함되지 않기 때문 */}
+        <Route path="/product/:id" element={<DetailPage convertPrice={convertPrice} cart={cart} setCart={setCart} />} /> {/* 여기의 DetailPage 컴포넌트는 /pages/DetailPage.jsx 이다. */}
         <Route path="/cart" element={<Basket cart={cart} setCart={setCart} convertPrice={convertPrice} checkList={checkList} setCheckList={setCheckList} />} />
       </Routes>
     </BrowserRouter>
