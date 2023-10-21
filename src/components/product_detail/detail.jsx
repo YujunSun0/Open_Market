@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../api/fetcher';
 import styles from "./detail.module.css";
+import { firestore } from '../../Firebase';
 
 export const Detail = ({convertPrice, cart, setCart}) => {
   const { id } = useParams();
   const [dataObj, setDataObj] = useState({});
   const [count, setCount] = useState(1);
-  
+  console.log(dataObj);
+  // 해당 코드에서는 새로고침을 하면 상태가 초기화되어 에러가 발생하여서 아래의 코드로 수정
+  // useEffect(() => {
+  //   setDataObj(products.find(el => el.id === id));
+  // }, [dataObj, id, products]);
+
   useEffect(() => {
-    getProducts()
-      .then((res) => {
-        setDataObj(res.data.products.find((el) => el.id === parseInt(id)));
-      });
-  }, [id]); 
+    const bucket = firestore.collection("products");
+    bucket.get().then((docs) => {
+      docs.forEach(doc => {
+        if (doc.id === id) setDataObj({ id:doc.id, ...doc.data() })
+      })
+    })
+  },[])
   
 
   // +, - 이미지를 누르면, 아래 함수가 실행됨 (onClick 이벤트핸들러)

@@ -1,7 +1,6 @@
 import styles from "./cart.module.css"
 
 export const CartList = ({ obj, convertPrice, handleQuantity, handleDelete, handleCheckList, checkList  }) => {
-  
 //checkbox를 클릭하면 총 상품금액을 계산하여 화면에 표시한다.
 //체크박스 전체 선택을 클릭하면, cart에 담겨있는 모든 리스트들의 총 상품금액을 계산하여 화면에 표시한다.
     return (
@@ -17,7 +16,7 @@ export const CartList = ({ obj, convertPrice, handleQuantity, handleDelete, hand
           <div className={styles.cart_product_info}>
             <p className={styles.seller_store}>{obj.provider}</p>
             <p className={styles.product_name}>{obj.name}</p>
-            <p className={styles.price}>{`${convertPrice(obj.price)}원`}</p>
+            <p className={styles.price}>{`${convertPrice(obj.price * obj.quantity)}원`}</p>
             <p className={styles.delivery}>택배배송 / 무료배송</p>
           </div>
         </div>

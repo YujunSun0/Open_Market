@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export const Cart = ({ cart, setCart, convertPrice, checkList, setCheckList }) => {  //cart = Objcet(데이터)를 요소로 갖고있는 Array
-
   const [total, setTotal] = useState(0);
   
   const handleQuantity = (id, quantity) => { // 장바구니 리스트의 수량을 증가/감소 시키는 함수
@@ -58,10 +57,6 @@ export const Cart = ({ cart, setCart, convertPrice, checkList, setCheckList }) =
   const checked = checkList.map((check) => // check는 id값이다. checked는 배열이다.
     cart.filter(el => el.id === check) // 체크된 리스트들을 담는다( cart에 filter 메서드를 사용하니 배열 안 객체 형태로 담아진다 )
   );
-  console.log(cart);
-  // console.log(checked);
-  // console.log(total);
-  console.log(checkList);
 
   return (
     <>
@@ -79,7 +74,7 @@ export const Cart = ({ cart, setCart, convertPrice, checkList, setCheckList }) =
                 <img src='images/icon-swiper-2.svg' alt='swipe' width="70" height="70" />
               </Link>
             </div>
-          ) : cart.map((obj, i) => {
+          ) : cart.map((obj) => {
             return (
               <CartList obj={obj} convertPrice={convertPrice} handleQuantity={handleQuantity} handleDelete={handleDelete}  handleCheckList={handleCheckList} checkList={checkList} />
             )
