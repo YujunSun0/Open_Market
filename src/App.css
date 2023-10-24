@@ -20,6 +20,10 @@ li {
   list-style: none;
 }
 
-button {
+button, img {
   cursor: pointer;
+}
+
+input:focus {
+  outline: none;
 }
