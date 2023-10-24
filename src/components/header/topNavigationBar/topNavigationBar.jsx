@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const TopNavigationBar = ({ cart }) => {
   const navigate = useNavigate();
 
-  if (window.location.pathname === "/login") return null;
+  if (["/login", "/signup"].includes(window.location.pathname)) return null;
     
   return (
     <header className={styles.header}>
@@ -36,12 +36,10 @@ export const TopNavigationBar = ({ cart }) => {
             }
           </div>
         </Link>
-        <Link to="/login">
-          <div className={styles.mypage}>
+        <div className={styles.mypage} onClick={() => navigate("/login")}>
             <img src="/images/icon-user.svg" alt="user" />
             <span>로그인</span>
-          </div>
-        </Link>
+        </div>
       </div>
     </header>
   );

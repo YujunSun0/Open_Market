@@ -7,6 +7,10 @@
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
 }
 
+.hidden {
+  display: none;
+}
+
 .inner {
   display: flex;
   align-items: center;
@@ -37,7 +41,7 @@
 .input_wrap input {
   width: 400px;
   height: 46px;
-  border: 2px solid #19ce60;
+  border: 2px solid #F58C39;
   padding: 13px 22px;
   font-size: 16px;
   line-height: 20px;
