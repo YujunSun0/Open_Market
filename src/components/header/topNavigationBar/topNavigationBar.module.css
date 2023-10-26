@@ -144,6 +144,22 @@
   align-items: center;
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  margin-left: 1rem;
+  width: 35px;
+  border-radius: 12px;
+}
+
+.name {
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
 @media (max-width: 902px) {
   .input_wrap {
     display: none;

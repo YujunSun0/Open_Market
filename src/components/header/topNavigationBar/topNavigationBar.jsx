@@ -2,7 +2,7 @@ import styles from "./topNavigationBar.module.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
-export const TopNavigationBar = ({ cart }) => {
+export const TopNavigationBar = ({ cart, userData }) => {
   const navigate = useNavigate();
 
   if (["/login", "/signup"].includes(window.location.pathname)) return null;
@@ -36,10 +36,16 @@ export const TopNavigationBar = ({ cart }) => {
             }
           </div>
         </Link>
-        <div className={styles.mypage} onClick={() => navigate("/login")}>
+        { userData !== null
+          ?<div className={styles.profile}>
+            <img src={`${userData.photoURL}`} alt="프로필 사진" className={styles.photo} />
+            <p className={styles.name}>{userData.displayName}</p>
+          </div>
+          : <div className={styles.mypage} onClick={() => navigate("/login")}>
             <img src="/images/icon-user.svg" alt="user" />
             <span>로그인</span>
         </div>
+        }
       </div>
     </header>
   );
