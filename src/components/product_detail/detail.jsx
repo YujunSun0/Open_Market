@@ -7,7 +7,7 @@ export const Detail = ({convertPrice, cart, setCart}) => {
   const { id } = useParams();
   const [dataObj, setDataObj] = useState({});
   const [count, setCount] = useState(1);
-  console.log(dataObj);
+  
   // 해당 코드에서는 새로고침을 하면 상태가 초기화되어 에러가 발생하여서 아래의 코드로 수정
   // useEffect(() => {
   //   setDataObj(products.find(el => el.id === id));
@@ -20,7 +20,7 @@ export const Detail = ({convertPrice, cart, setCart}) => {
         if (doc.id === id) setDataObj({ id:doc.id, ...doc.data() })
       })
     })
-  },[])
+  },[id])
   
 
   // +, - 이미지를 누르면, 아래 함수가 실행됨 (onClick 이벤트핸들러)
