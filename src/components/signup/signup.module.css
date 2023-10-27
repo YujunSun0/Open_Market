@@ -1,0 +1,104 @@
+.container {
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 500px;
+    height: 75vh;
+    box-shadow: 0px 0px 6px 3px #cecece;
+    padding: 3rem;
+}
+
+.img {
+    width: 90px;
+    margin-bottom: 0.5rem;
+}
+
+.signUpText {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.aboutText {
+    font-size: 14px;
+    margin-bottom: 2rem;
+}
+
+.formText {
+    font-size: 14px;
+    margin-bottom: 0.3rem;
+}
+
+.none {
+    display:none
+}
+
+.invalidText {
+    color: red;
+    font-size: 11px;
+    margin-left: 0.4rem;
+}
+
+.validText {
+    color: green;
+    font-size: 11px;
+    margin-left: 0.4rem;
+}
+
+.inputForm {
+    position: relative;
+    border: 1px solid rgb(185, 180, 180);
+    border-radius: 4px;
+    margin-bottom: 1.1rem;
+}
+
+.input {
+    width: 84%;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+}
+
+.dupBtn:disabled {
+    opacity: 0.4;
+    cursor:default;
+}
+
+.dupBtn {
+    border: none;
+    color: #F58C39;
+    position: absolute;
+    width: 60px;
+    height: 100%;
+}
+
+.eyeSlash {
+    position: relative;
+    left: 25px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.signUpBtn {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: orange ;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.signUpBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
